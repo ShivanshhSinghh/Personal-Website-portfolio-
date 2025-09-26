@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Shivansh Singh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="dexter-quote" id="dexterQuote">Tonight's the night.</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="case-study">
+    <h1>Contact Me 📩</h1>
+    <p class="subtitle">Let's connect — whether it's about projects, collaborations, or just a chat.</p>
+
+    <div class="highlight-box">
+      <p><strong>Email:</strong>
+        <a href="mailto:Dantes.help.in@gmail.com" style="color:#ff3b3b; text-decoration:none;">
+          Dantes.help.in@gmail.com
+        </a>
+      </p>
+      <p><strong>GitHub:</strong>
+        <a href="https://github.com/ShivanshhSinghh" target="_blank" style="color:#ff3b3b; text-decoration:none;">
+          github.com/ShivanshhSinghh
+        </a>
+      </p>
+      <p><strong>Instagram:</strong>
+        <a href="https://www.instagram.com/_.shivansh_.singh" target="_blank" style="color:#ff3b3b; text-decoration:none;">
+          @_.shivansh_.singh
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>© 2025 Shivansh Singh. Designed with chaos, forged like a hero ⚡</footer>
+
+  <script>
+    const DEXTER_QUOTES = [
+      "Tonight's the night.",
+      "Born in blood.",
+      "I have work to do.",
+      "I’m a very neat monster.",
+      "My dark passenger."
+    ];
+    let qi = 0;
+    const quoteEl = document.getElementById("dexterQuote");
+    function rotateQuote(){
+      quoteEl.classList.add("fade-out");
+      setTimeout(() => {
+        qi = (qi + 1) % DEXTER_QUOTES.length;
+        quoteEl.textContent = DEXTER_QUOTES[qi];
+        quoteEl.classList.remove("fade-out");
+      }, 600);
+    }
+    setInterval(rotateQuote, 5000);
+  </script>
+</body>
+</html>

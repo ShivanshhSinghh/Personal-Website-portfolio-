@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Senpai Sanctum | Project Case Study</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav>
+    <div class="dexter-quote" id="dexterQuote">Tonight's the night.</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="case-study">
+    <h1>Senpai Sanctum 🛒</h1>
+    <p class="subtitle">Anime-inspired e-commerce store — Built with my best friend</p>
+
+    <div class="highlight-box">
+      <p><strong>Summary:</strong> Senpai Sanctum was an anime-themed online store I co-founded with my best friend.
+        We built it from scratch, marketed it to anime fans, and grew it into a small business that
+        <strong>generated over ₹50,000 in sales</strong> before legal issues forced us to shut it down.
+        This project taught me both technical skills and real-world entrepreneurship.
+      </p>
+    </div>
+
+    <div class="metrics" id="metrics">
+      <div class="metric">
+        <h2 data-target="50000" data-prefix="₹" data-notation="compact" data-suffix="+">₹0</h2>
+        <p>Revenue</p>
+      </div>
+      <div class="metric">
+        <h2 data-target="200" data-prefix="" data-notation="plain" data-suffix="+">0</h2>
+        <p>Orders Fulfilled</p>
+      </div>
+      <div class="metric">
+        <h2 data-target="5000" data-prefix="" data-notation="compact" data-suffix="+">0</h2>
+        <p>Visitors</p>
+      </div>
+    </div>
+
+    <h2>What I Did 🚀</h2>
+    <ul>
+      <li>Built the store website and handled product listings.</li>
+      <li>Managed payments, checkout flow, and order tracking system.</li>
+      <li>Worked with my best friend to source anime-inspired products.</li>
+      <li>Promoted via Instagram & anime communities to attract customers.</li>
+    </ul>
+
+    <h2>What I Learned 📚</h2>
+    <ul>
+      <li>How to build and scale an e-commerce site from scratch.</li>
+      <li>Handling real customers, orders, and support.</li>
+      <li>Business strategy: pricing, marketing, and scaling.</li>
+      <li>Legal awareness: why some niches can run into trademark/copyright issues.</li>
+    </ul>
+
+    <div class="tags">
+      <span class="tag">E-Commerce</span>
+      <span class="tag">Web Dev</span>
+      <span class="tag">Entrepreneurship</span>
+      <span class="tag">Teamwork</span>
+      <span class="tag">Revenue ₹50K+</span>
+    </div>
+  </section>
+
+  <footer>© 2025 Shivansh Singh. Designed with chaos, forged like a hero ⚡</footer>
+
+  <script>
+    function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+    function fmt(val, mode){
+      if (mode === 'compact') return new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(val);
+      return val.toLocaleString('en-IN');
+    }
+    function count(el, target, pre='', suf='', mode='plain', ms=1500){
+      const start = 0, t0 = performance.now();
+      function step(now){
+        const k = Math.min((now - t0) / ms, 1);
+        const v = Math.floor(start + (target - start) * easeOutCubic(k));
+        el.textContent = `${pre}${fmt(v, mode)}${suf}`;
+        if (k < 1) requestAnimationFrame(step);
+        else el.textContent = `${pre}${fmt(target, mode)}${suf}`;
+      }
+      requestAnimationFrame(step);
+    }
+    function startCounters(){
+      document.querySelectorAll('.metric h2').forEach(h2 => {
+        count(
+          h2,
+          Number(h2.dataset.target || '0'),
+          h2.dataset.prefix || '',
+          h2.dataset.suffix || '',
+          h2.dataset.notation || 'plain'
+        );
+      });
+    }
+    const metrics = document.getElementById('metrics');
+    let ran = false;
+    const ob = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !ran){ ran = true; startCounters(); ob.disconnect(); }
+      });
+    }, { threshold: 0.3 });
+    ob.observe(metrics);
+  </script>
+
+  <script>
+    const DEXTER_QUOTES = [
+      "Tonight's the night.",
+      "Born in blood.",
+      "I have work to do.",
+      "I’m a very neat monster.",
+      "My dark passenger."
+    ];
+    let qi = 0;
+    const quoteEl = document.getElementById("dexterQuote");
+    function rotateQuote(){
+      quoteEl.classList.add("fade-out");
+      setTimeout(() => {
+        qi = (qi + 1) % DEXTER_QUOTES.length;
+        quoteEl.textContent = DEXTER_QUOTES[qi];
+        quoteEl.classList.remove("fade-out");
+      }, 600);
+    }
+    setInterval(rotateQuote, 5000);
+  </script>
+</body>
+</html>

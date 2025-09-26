@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shivansh Singh | Chaos Engineer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav>
+    <div class="dexter-quote" id="dexterQuote">Tonight's the night.</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Hey! I'm Shivansh &lt;3</h1>
+    <p>16 y/o | Chaos Engineer ⚡ Breaking things to rebuild them stronger</p>
+    <a href="projects.html" class="cta-btn">View My Projects →</a>
+  </section>
+
+  <footer>Designed with chaos, forged like a hero ⚡</footer>
+
+  <canvas id="bgCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    const particles = [];
+    const COUNT = 60;
+    const COLORS = ["rgba(255,255,255,0.3)", "rgba(255,59,59,0.25)"];
+
+    class Particle {
+      constructor(){ this.reset(); }
+      reset(){
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1.5;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      }
+      step(){
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw(){
+        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 6);
+        g.addColorStop(0, this.color);
+        g.addColorStop(1, "transparent");
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init(){ for (let i=0;i<COUNT;i++) particles.push(new Particle()); }
+    function loop(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for (const p of particles){ p.step(); p.draw(); }
+      requestAnimationFrame(loop);
+    }
+    addEventListener("resize", () => {
+      canvas.width = innerWidth; canvas.height = innerHeight;
+    });
+    init(); loop();
+  </script>
+
+  <script>
+    const DEXTER_QUOTES = [
+      "Tonight's the night.",
+      "Born in blood.",
+      "I have work to do.",
+      "I’m a very neat monster.",
+      "My dark passenger."
+    ];
+    let qi = 0;
+    const quoteEl = document.getElementById("dexterQuote");
+    function rotateQuote(){
+      quoteEl.classList.add("fade-out");
+      setTimeout(() => {
+        qi = (qi + 1) % DEXTER_QUOTES.length;
+        quoteEl.textContent = DEXTER_QUOTES[qi];
+        quoteEl.classList.remove("fade-out");
+      }, 600);
+    }
+    setInterval(rotateQuote, 5000);
+  </script>
+</body>
+</html>

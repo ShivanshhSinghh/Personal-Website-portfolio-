@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Shivansh Singh</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/4a3b9e6c4a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav>
+    <div class="dexter-quote" id="dexterQuote">Tonight's the night.</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="projects">
+    <h2>MY PROJECTS</h2>
+    <p>A showcase of my real journey in tech & entrepreneurship.</p>
+
+    <div class="project-card featured">
+      <div class="badge">FEATURED</div>
+      <div class="project-icon"><i class="fas fa-store"></i></div>
+      <h3>Senpai Sanctum 🛒</h3>
+      <p>
+        An anime-themed e-commerce store selling exclusive merch. Built and scaled
+        <strong>with my best friend</strong>. Together we <strong>generated over ₹50,000 revenue</strong>
+        before shutting it down due to legal issues.
+      </p>
+      <div class="tags">
+        <span class="tag">E-Commerce</span>
+        <span class="tag">Web Dev</span>
+        <span class="tag">Entrepreneurship</span>
+        <span class="tag">Revenue ₹50K+</span>
+        <span class="tag">Teamwork</span>
+      </div>
+      <a href="senpai-sanctum.html" class="read-more">Read More →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon"><i class="fas fa-bolt"></i></div>
+      <h3>Aero ⚡ <span style="font-size:14px; color:#ff3b3b; letter-spacing:1px;">(In Development)</span></h3>
+      <p><strong>Your PC F***ing Sucks.</strong><br>
+        Aero is my custom-built performance optimizer for Windows. Boost FPS, decrease response times,
+        eliminate ping spikes, and debloat the crap you don’t need. Currently under development, but
+        already shaping up to turn weak laptops into gaming-ready machines.
+      </p>
+      <div class="tags">
+        <span class="tag">Windows</span><span class="tag">Performance</span>
+        <span class="tag">Optimizer</span><span class="tag">Gaming</span><span class="tag">In Progress</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 Shivansh Singh. Designed with chaos, forged like a hero ⚡</footer>
+
+  <script>
+    const DEXTER_QUOTES = [
+      "Tonight's the night.",
+      "Born in blood.",
+      "I have work to do.",
+      "I’m a very neat monster.",
+      "My dark passenger."
+    ];
+    let qi = 0;
+    const quoteEl = document.getElementById("dexterQuote");
+    function rotateQuote(){
+      quoteEl.classList.add("fade-out");
+      setTimeout(() => {
+        qi = (qi + 1) % DEXTER_QUOTES.length;
+        quoteEl.textContent = DEXTER_QUOTES[qi];
+        quoteEl.classList.remove("fade-out");
+      }, 600);
+    }
+    setInterval(rotateQuote, 5000);
+  </script>
+</body>
+</html>
