@@ -5,7 +5,7 @@
 My personal portfolio built with **HTML, CSS, and JS**.  
 Dark, minimal, animated, and a little bit chaotic.  
 
-🌐 **Live Website:** [Click Here](shivanshlovestocode.vercel.app)  
+🌐 **Live Website:** [Click Here](https:/shivanshlovestocode.vercel.app)  
 
 ## Features
 - Responsive design  
