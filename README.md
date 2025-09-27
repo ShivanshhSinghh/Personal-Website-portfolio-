@@ -5,7 +5,7 @@
 My personal portfolio built with **HTML, CSS, and JS**.  
 Dark, minimal, animated, and a little bit chaotic.  
 
-🌐 **Live Website:** [Click Here](https://shivanshhsinghh.github.io/Personal-Website-portfolio-)  
+🌐 **Live Website:** [Click Here](Shivanshlovestocode.xyz)  
 
 ## Features
 - Responsive design  
